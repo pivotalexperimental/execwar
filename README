@@ -1,0 +1,5 @@
+This is a sample rails app testing executable, non-exploded wars with JRuby.
+
+Run with:
+
+java -jar execwar.war
