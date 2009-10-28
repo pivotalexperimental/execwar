@@ -4,7 +4,7 @@ require 'jruby-jars'
 namespace :uberwar do
   desc "Package an executable jar with compiled ('obfuscated') rails app classes, leveraging warbler"
   task :build => ["war:clean", "war:app", "war:public", "war:webxml"] do
-  # task :build => ["war:webxml"] do
+  
     # Compile Java classes with javac
     javac_target_path = "#{RAILS_ROOT}/tmp/war"
     javac_source_path = "#{RAILS_ROOT}/app/java"
@@ -35,8 +35,6 @@ namespace :uberwar do
 
     # Compile the Ruby classes with jrubyc
     war_files_path = "#{RAILS_ROOT}/tmp/war/WEB-INF"
-    # TODO: add any other non-open-source, pivotal-owned ruby files which need to be compiled
-    # TODO: are there performance gains to precompiling everything (including non-pivotal, open source ruby files?)
     dirs_to_compile = [
         "app",
         "lib"
@@ -58,7 +56,6 @@ namespace :uberwar do
   	war_css_dir = "#{RAILS_ROOT}/tmp/war/stylesheets"
   	FileUtils.mkdir_p(war_js_dir)
   	FileUtils.mkdir_p(war_css_dir)
-  	Rake::Task["package_js_css"].invoke
   	FileUtils.mv(Dir.glob("#{RAILS_ROOT}/public/javascripts/*_?[^a-z]*[^a-z].js"), war_js_dir)
   	FileUtils.mv(Dir.glob("#{RAILS_ROOT}/public/stylesheets/*_?[^a-z]*[^a-z].css"), war_css_dir)
 
