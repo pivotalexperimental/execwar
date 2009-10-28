@@ -1,5 +1,11 @@
 This is a sample rails app testing executable, non-exploded wars with JRuby.
 
-Run with:
+Setup:
+jruby -S gem install geminstaller
+jruby -S geminstaller
 
+Build:
+jruby -S rake uberwar:build
+
+Run:
 java -jar execwar.war
