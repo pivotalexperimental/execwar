@@ -6,6 +6,7 @@ RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
+require 'active_record'
 require 'extensions/jruby_war_with_classes_before_init'
 
 Rails::Initializer.run do |config|
