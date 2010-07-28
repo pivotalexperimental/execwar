@@ -9,3 +9,5 @@ jruby -S rake uberwar:build
 
 Run:
 java -jar execwar.war
+
+Copyright (c) 2010 Pivotal Labs. This software is licensed under the MIT License.
